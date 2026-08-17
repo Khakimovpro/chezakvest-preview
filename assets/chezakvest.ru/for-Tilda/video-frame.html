@@ -1,259 +1,57 @@
-<!doctype html>
-<html lang="ru"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>Доступ по паролю</title>
-<link rel="icon" href="/chezakvest-preview/favicon.ico" sizes="16x16 24x24 32x32 64x64" type="image/x-icon">
-<link rel="apple-touch-icon" href="/chezakvest-preview/apple-touch-icon.png">
-<meta name="theme-color" content="#ff6b00">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <style>
- :root{color-scheme:light}
- body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-      background:#eee;font-family:Montserrat,-apple-system,Segoe UI,Roboto,sans-serif;color:#333}
- /* Keep the form hidden until saved access has been checked to prevent a flash during navigation. */
- .box{display:none;background:#fff;border-radius:20px;padding:38px 34px;max-width:380px;width:calc(100% - 32px);
-      box-shadow:0 12px 40px rgba(0,0,0,.08);text-align:center}
- html.ask .box{display:block}
- h1{font-size:20px;margin:0 0 8px}
- p{margin:0 0 22px;font-size:14px;color:#777;line-height:1.5}
- input{width:100%;height:48px;border:1px solid #e0e0e0;border-radius:10px;padding:0 14px;
-       font-size:16px;font-family:inherit;box-sizing:border-box}
- button{width:100%;height:48px;margin-top:12px;border:0;border-radius:10px;background:#ff6b00;
-        color:#fff;font-size:16px;font-weight:600;font-family:inherit;cursor:pointer}
- button:disabled{opacity:.6;cursor:default}
- .err{margin-top:14px;color:#d33;font-size:14px;min-height:20px}
- .hint{margin:14px 0 0;font-size:12px;color:#999}
-</style></head>
+html,
+body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#000;
+}
+
+.video-wrap{
+  width:100%;
+  height:100%;
+}
+
+video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000;
+}
+</style>
+</head>
+
 <body>
-<div class="box">
-  <h1>Чё за Квест — превью сайта</h1>
-  <p>Страница закрыта паролем. Содержимое зашифровано, без пароля его нельзя прочитать.</p>
-  <form id="f"><input id="p" type="password" placeholder="Пароль" autocomplete="current-password">
-  <button id="b" type="submit">Открыть</button></form>
-  <div class="err" id="e"></div>
-  <p class="hint">Пароль запомнится на неделю — на других страницах его спрашивать не будем.</p>
+
+<div class="video-wrap">
+
+  <video autoplay controls playsinline>
+    <source id="videoSource" src="" type="video/mp4">
+  </video>
+
 </div>
-<script id="d" type="text/plain">jJlhAMurKmAJhhTquOvxB2F4FK0IFNa2hf1obvxeqSGtX41TjmKsaq60DvBBDqZT/sTfV+AQ2mvTK5BqWFvsEsx2rgOkTBT+yHRb7p1oXgVLL2VgGKFrSgDVfvE6TLC9FEPY8dLSkgs/HrybS5ERTilr5N2Uiy8tzwbAdgL8WMj4Mq7ZGx5GanByPHKxMLTX9DZEqHELmLmulevDLLznlHYkdaUNoVEaj7Qjqbe4kjT74ytluJ95Vy7ew3pPPFJOJpM26zll5YRdsi0JWpDEoPF4u0Bd2nB5wr27jgvmJA8Jl2jcDzG/Kg0hPSWpfwgysowwWgZuabWDCLk8f/ZQ8rHkjONxJBW1VGjnqx/PLVUgRMedkuYjs5XU2eb3ASJHgE9Wb1b4N2ZGJ0JYgZU+NqJKEkwg+K3ym4x4PPhvOeVciOrNwUtMzqZ2Pfh1cdKpeERNec8Mr9zDWognptC2sRjS392tCJP+J6L4RC93Qqs6KCqrxPCUVvCtKYpPXGyWai9nPCl2Wa2xh4+HvIUOLI5CEjU8bksYzOxfp+VD6WufU6jVnBRt5KywCegH0q8JvkMqHImMcLMM3QotaDx1O7ig4VYGcJds1gGYSTcF9KDyJQSmvOOMiOSuspg1sWru9pacr0875yAHiyGrDHh2FjiXFDPqwERDOplMlXJYz8rFegl+61/AUZcClgfVclUyz7MaWEm6r/80cHtURov0phJXYi0jE3ayE2z4Y+D2vWG413wqAWIa+mVeasMd/p5q72+wsQKpaKOhoPxRQJ0kzZxTMkko+FLlYYmmG9/TPsB2AL0OiO1LxvmvI56n7T3eZqAUuX8EkbgAPmmV1AtOcC/uidVBpRoaWW5Y6LWrc5S4adCG7fU6BLkHT54bNTAQjIc5JJ1LYSajjlG73vwCjeWsa+n2lwcLCHpvPbh8NWysJIQQSJ+ff5uvW41OA/ExxLVhfesong4eh1makL3Y6IcCGG1dMm5fS8CkuTfg08+ECMtMGh+sc83VUZDRNDGstaui9Nh9GZm57q4GPNVxsD1k86pah3I+VqVvQtEuYv2HiY0xk7HUu+hnG2gZhkTbPgAXqQ==</script>
+
 <script>
-const BASE = "/chezakvest-preview/assets/chezakvest.ru/for-Tilda/";
-const SALT_B64 = "E6Glt5r9WUScmiPVcbZ4Rg==";
-const ITER = 250000;
-const STORE = "czk-preview-key";            // {salt, k, exp}
-const STORE_PATH = "/chezakvest-preview/";
-const OLD_SESSION = "czk-preview-pass";     // ключ прошлой версии лоадера
-const TTL = 7 * 24 * 60 * 60 * 1000;
+const params = new URLSearchParams(window.location.search);
 
-const SALT = b64(SALT_B64);
-let KEYP = null;
+const video = params.get('video');
 
-function b64(str) {
-  const bin = atob(str.trim());
-  const out = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
-  return out;
+if(video){
+
+  document.getElementById('videoSource').src =
+    decodeURIComponent(video);
+
+  document.querySelector('video').load();
+
 }
-
-function tob64(buf) {
-  const a = new Uint8Array(buf);
-  let s = "";
-  for (let i = 0; i < a.length; i++) s += String.fromCharCode(a[i]);
-  return btoa(s);
-}
-
-function readCookie(name) {
-  try {
-    const prefix = `${name}=`;
-    const found = document.cookie.split("; ").find((item) => item.startsWith(prefix));
-    return found ? decodeURIComponent(found.slice(prefix.length)) : null;
-  } catch (e) { return null; }
-}
-
-function clearLegacyVault() {
-  try { localStorage.removeItem(STORE); } catch (e) {}
-}
-
-function readVault() {
-  const serialized = readCookie(STORE);
-  if (serialized !== null) {
-    try {
-      const vault = JSON.parse(serialized);
-      if (vault && vault.exp && vault.exp > Date.now()) return vault;
-      forget();
-      return null;
-    } catch (e) {
-      forget();
-      return null;
-    }
-  }
-  // Remove the former origin-wide localStorage record before proceeding. It contained the
-  // plaintext password in an older loader and must never be used for automatic unlocks again.
-  clearLegacyVault();
-  try {
-    const pass = sessionStorage.getItem(OLD_SESSION);
-    if (pass) return { p: pass };
-  } catch (e) {}
-  return null;
-}
-
-// Access remains valid for a rolling week while the preview is being reviewed.
-function writeVault(vault) {
-  try {
-    const record = encodeURIComponent(JSON.stringify({
-      salt: vault.salt,
-      k: vault.k,
-      exp: Date.now() + TTL,
-    }));
-    document.cookie = `${STORE}=${record}; Max-Age=${Math.floor(TTL / 1000)}; Path=${STORE_PATH}; SameSite=Strict; Secure`;
-    // Retire the one-time session migration only after persistent storage succeeds.
-    try { sessionStorage.removeItem(OLD_SESSION); } catch (ignore) {}
-  } catch (e) {}
-}
-
-function forget() {
-  try { document.cookie = `${STORE}=; Max-Age=0; Path=${STORE_PATH}; SameSite=Strict; Secure`; } catch (e) {}
-  clearLegacyVault();
-  try { sessionStorage.removeItem(OLD_SESSION); } catch (e) {}
-}
-
-async function keyFromPass(pass) {
-  const material = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(pass),
-    "PBKDF2",
-    false,
-    ["deriveKey"],
-  );
-  const key = await crypto.subtle.deriveKey(
-    { name: "PBKDF2", salt: SALT, iterations: ITER, hash: "SHA-256" },
-    material,
-    { name: "AES-GCM", length: 256 },
-    true,
-    ["decrypt"],
-  );
-  return new Uint8Array(await crypto.subtle.exportKey("raw", key));
-}
-
-function importRaw(raw) {
-  return crypto.subtle.importKey("raw", raw, { name: "AES-GCM" }, false, ["decrypt"]);
-}
-
-async function decryptText(txt, key) {
-  const raw = b64(txt);
-  return new Uint8Array(await crypto.subtle.decrypt(
-    { name: "AES-GCM", iv: raw.slice(0, 12) },
-    key,
-    raw.slice(12),
-  ));
-}
-
-async function decryptUrl(url, keyP) {
-  const [txt, key] = await Promise.all([fetch(url).then((r) => r.text()), keyP]);
-  return decryptText(txt, key);
-}
-
-function pageCipher() {
-  const el = document.getElementById("d");
-  const cipher = el ? el.textContent.trim() : "";
-  if (cipher.length > 32) return Promise.resolve(cipher);
-  return fetch(BASE + "page.enc").then((r) => r.text());
-}
-
-// Картинки расшифровываются лениво: сразу — только те, что близко к экрану,
-// остальные по мере скролла. Иначе разблокировка ждёт весь набор (на главной их сотня).
-function swapAssets(keyP) {
-  const cache = new Map();
-
-  const load = async (el) => {
-    const src = el.getAttribute("data-enc");
-    if (!src || el.dataset.encDone) return;
-    el.dataset.encDone = "1";
-    try {
-      if (!cache.has(src)) {
-        cache.set(src, decryptUrl(src, keyP).then((bytes) => {
-          const type = src.endsWith(".svg.enc") ? "image/svg+xml"
-            : src.endsWith(".png.enc") ? "image/png"
-            : src.endsWith(".mp4.enc") ? "video/mp4" : "image/webp";
-          return URL.createObjectURL(new Blob([bytes], { type }));
-        }));
-      }
-      const url = await cache.get(src);
-      if (el.tagName === "IMG" || el.tagName === "VIDEO") el.src = url;
-      else el.style.backgroundImage = `url(${url})`;
-    } catch (err) { el.dataset.encDone = ""; }
-  };
-
-  const nodes = [...document.querySelectorAll("[data-enc]")];
-  if (!("IntersectionObserver" in window)) { nodes.forEach(load); return; }
-
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) { obs.unobserve(e.target); load(e.target); }
-    });
-  }, { rootMargin: "800px 0px" });
-
-  nodes.forEach((el) => io.observe(el));
-  // первые два экрана не ждут наблюдателя: туда попадают герой и слайды слайдера,
-  // которые сдвинуты за край вьюпорта и сами по себе в наблюдатель не попадут
-  const limit = window.innerHeight * 2;
-  nodes.filter((el, i) => i < 4 || el.getBoundingClientRect().top < limit).forEach(load);
-}
-
-function documentReady() {
-  if (document.readyState !== "loading") return Promise.resolve();
-  return new Promise((resolve) => document.addEventListener("DOMContentLoaded", resolve, { once: true }));
-}
-
-async function paint(keyP, remember) {
-  const [cipher, key] = await Promise.all([pageCipher(), keyP]);
-  const html = new TextDecoder().decode(await decryptText(cipher, key));
-  if (remember) writeVault(remember);
-  KEYP = Promise.resolve(key);
-  // A cached key resolves before the parser reaches the end of this loader. Replacing the document
-  // before DOMContentLoaded would be discarded by the active parser, leaving a blank password screen.
-  await documentReady();
-  document.open(); document.write(html); document.close();
-  // The document was replaced, so the deferred asset loader must be attached again.
-  const run = () => swapAssets(KEYP);
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
-  else run();
-}
-
-function ask() {
-  document.documentElement.className = "ask";
-  const input = document.getElementById("p");
-  const button = document.getElementById("b");
-  const error = document.getElementById("e");
-  input.focus();
-  document.getElementById("f").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    button.disabled = true;
-    error.textContent = "";
-    const pass = input.value;
-    try {
-      const raw = await keyFromPass(pass);
-      await paint(importRaw(raw), { salt: SALT_B64, k: tob64(raw) });
-    } catch (err) {
-      forget();
-      error.textContent = "Неверный пароль";
-      button.disabled = false;
-    }
-  });
-}
-
-(async () => {
-  if (/(?:[?&]logout)(?:=|&|$)/.test(location.search)) forget();
-  const vault = readVault();
-  if (vault) {
-    try {
-      // Only a legacy same-tab session can still derive a key from a password. A newly encrypted
-      // deployment intentionally asks once more instead of persisting that password anywhere.
-      const raw = (vault.k && vault.salt === SALT_B64) ? b64(vault.k) : await keyFromPass(vault.p);
-      await paint(importRaw(raw), { salt: SALT_B64, k: tob64(raw) });
-      return;
-    } catch (e) {
-      forget();
-    }
-  }
-  ask();
-})();
 </script>
-</body></html>
+
+</body>
+</html>
